@@ -1,0 +1,33 @@
+1 - Sigue los pasos que aparecen en la documentacion oficial para
+    empezar a manejar backstage
+        * https://backstage.io/docs/getting-started/
+
+2 - Configuración de un provider de autenticación
+    * https://backstage.io/docs/getting-started/config/authentication
+
+3 - Configuracion de base de datos
+    * https://backstage.io/docs/getting-started/config/database
+
+4 - Deploy con docker
+    * https://backstage.io/docs/deployment/docker
+
+5 - Una vez tengas configurado la CLI para la nube de tu preferencia
+    corres un servicio que tenga integrado https para evitar problemas de CSP (Content Security Policy)
+
+    comando para GCP para el despliegue
+
+    gcloud run deploy backstage \
+        --image docker.io/juliocesaracostalopez01/backstagev14 \
+        --platform managed \
+        --region us-central1 \
+        --allow-unauthenticated \
+        --set-env-vars="NODE_ENV=production" \
+        --port 7007
+
+    gcloud run deploy nombre_del_despliegue \
+        --image repositorio_de_la_imagen/nombre_de_la_imagen \
+        --platform managed \
+        --region region_donde_se_despliega \
+        --allow-unauthenticated \
+        --set-env-vars="NODE_ENV=production" \
+        --port puerto_que_usara_la_aplicacion
